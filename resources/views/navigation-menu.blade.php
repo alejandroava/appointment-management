@@ -14,6 +14,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                        <nav class="space-x-4">
+                            <a href="#inicio" class="text-gray-700 hover:text-blue-500">INICIO</a>
+                            <a href="/appointments/create" class="text-gray-700 hover:text-blue-500">AGENDAR CITA</a>
+                            <a href="/appointments" class="text-gray-700 hover:text-blue-500">VER MIS CITAS</a>
+                        </nav>
                     </x-nav-link>
                 </div>
             </div>

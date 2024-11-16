@@ -2,6 +2,20 @@
 
 @section('title', 'Agendar Cita')
 
+<x-slot name="header">
+    <div class="flex items-center justify-between">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+        <!-- Barra de navegación -->
+        <nav class="space-x-4">
+            <a href="#inicio" class="text-gray-700 hover:text-blue-500">INICIO</a>
+            <a href="/appointments/create" class="text-gray-700 hover:text-blue-500">AGENDAR CITA</a>
+            <a href="/appointments" class="text-gray-700 hover:text-blue-500">VER MIS CITAS</a>
+        </nav>
+    </div>
+</x-slot>
+
 @section('content')
 <div class="container py-5">
     <h1 class="text-center text-primary mb-4">Agendar Cita Médica</h1>
@@ -30,7 +44,7 @@
             {{ $errors->first('error') }}
         </div>
     @endif
-
+    
     <div class="card shadow-lg">
         <div class="card-body">
             <form action="{{ route('appointments.store') }}" method="POST">
