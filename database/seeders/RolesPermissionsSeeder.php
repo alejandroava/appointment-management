@@ -58,6 +58,34 @@ class RolesPermissionsSeeder extends Seeder
         
         // Asignar el rol de doctor al usuario creado
         $doctorUser->assignRole('doctor');
+        $this->createTestUsers();
+    }
+
+    private function createTestUsers()
+    {
+        // Crear 10 usuarios de tipo "paciente"
+        for ($i = 1; $i <= 10; $i++) {
+            $user = User::firstOrCreate(
+                ['email' => "paciente{$i}@example.com"],
+                [
+                    'name' => "Paciente {$i}",
+                    'password' => Hash::make('password123'), // Contraseña genérica
+                ]
+            );
+            $user->assignRole('paciente');
+        }
+
+        // Crear 5 usuarios de tipo "doctor"
+        for ($i = 1; $i <= 5; $i++) {
+            $user = User::firstOrCreate(
+                ['email' => "doctor{$i}@example.com"],
+                [
+                    'name' => "Doctor {$i}",
+                    'password' => Hash::make('password123'), // Contraseña genérica
+                ]
+            );
+            $user->assignRole('doctor');
+        }
     }
 
     
